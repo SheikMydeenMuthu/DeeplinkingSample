@@ -44,7 +44,7 @@ namespace DeeplinkingSample.Droid
 
                     if (email != null && email != "")
                     {
-                        //write something here
+                        Xamarin.Forms.MessagingCenter.Send<string, string>("", "AppLaunchedFromDeepLink", email);
                     }
                 }
                 catch (Exception e)

@@ -45,7 +45,7 @@ namespace DeeplinkingSample.iOS
 
                 if (email != null && email != "")
                 {
-                    //write something here
+                    Xamarin.Forms.MessagingCenter.Send<string, string>("", "AppLaunchedFromDeepLink", email);
                 }
             }
             return true;
