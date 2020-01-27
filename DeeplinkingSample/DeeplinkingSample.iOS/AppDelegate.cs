@@ -28,5 +28,28 @@ namespace DeeplinkingSample.iOS
 
             return base.FinishedLaunching(app, options);
         }
+        public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
+        {
+            if (url != null)
+            {
+                NSUrlComponents urlComponents = new NSUrlComponents(url, false);
+
+                string email = "";
+
+                NSUrlQueryItem[] allItems = urlComponents.QueryItems;
+                foreach (NSUrlQueryItem item in allItems)
+                {
+                    if (item.Name == "email")
+                        email = item.Value;
+                }
+
+                if (email != null && email != "")
+                {
+                    //write something here
+                }
+            }
+            return true;
+        }
     }
 }
+
